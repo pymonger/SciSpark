@@ -6,7 +6,9 @@ name := "SciSparkTestExperiments"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.10.5"
+
+ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
 
 scalacOptions := Seq("-feature", "-deprecation")
 
@@ -44,18 +46,18 @@ test in assembly := {}
 classpathTypes += "maven-plugin"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" % "scalatest_2.11" % "3.0.0-M14",
-  "org.apache.spark" % "spark-core_2.11" % "1.6.0" exclude("org.slf4j", "slf4j-api"),
-  "org.apache.spark" % "spark-mllib_2.11" % "1.6.0",
+  "org.scalatest" % "scalatest_2.10" % "2.2.4",
+  "org.apache.spark" % "spark-core_2.10" % "1.6.0" exclude("org.slf4j", "slf4j-api"),
+  "org.apache.spark" % "spark-mllib_2.10" % "1.6.0",
   //Math Libraries
   //"org.jblas" % "jblas" % "1.2.3",
   // other dependencies here
-  "org.scalanlp" % "breeze_2.11" % "0.11.2",
-  "org.json4s" % "json4s-native_2.11" % "3.3.0",
+  "org.scalanlp" % "breeze_2.10" % "0.11.2",
+  "org.json4s" % "json4s-native_2.10" % "3.3.0",
   // native libraries greatly improve performance, but increase jar sizes.
-  "org.scalanlp" % "breeze-natives_2.11" % "0.11.2",
+  "org.scalanlp" % "breeze-natives_2.10" % "0.11.2",
   // Nd4j scala api with netlib-blas backend
-  "org.nd4j" % "nd4s_2.11" % "0.4-rc3.8",
+  "org.nd4j" % "nd4s_2.10" % "0.4-rc3.8",
   "org.nd4j" % "nd4j-x86" % "0.4-rc3.8",
   "edu.ucar" % "opendap" % "2.2.2",
   "joda-time" % "joda-time" % "2.9.1",
